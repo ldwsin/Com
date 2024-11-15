@@ -58,6 +58,7 @@ class CompetitionTest3ApplicationTests {
         Competition competition = competitionService.getCompetition("2024");
         System.out.println(competition);
     }
+
     @Test
     public void test4(){
         List<Competition> competitions=competitionService.getCompetitionsByYear("2024");

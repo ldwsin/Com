@@ -14,10 +14,13 @@ public class CompetitionService {
     @Autowired
     private CompetitionRepository competitionRepository;
 
+    //添加
     public void addCompetition(Competition competition) {
         competitionRepository.save(competition);
+
     }
 
+//    通过id删除
     public int deleteCompetition(String id) {
         competitionRepository.deleteById(id);
         if(competitionRepository.existsById(id)) {
@@ -48,8 +51,10 @@ public class CompetitionService {
     public List<Competition> FindByYear1(String year) {
         return competitionRepository.findByYearNative(year);
     }
+
     public List<Competition> getCompetitionsByYear(String year) {
-        CompetitionSpecification spec = new CompetitionSpecification(year);
+        CompetitionSpecification spec = new CompetitionSpecification();
+        CompetitionSpecification.yearEquals(year);
         System.out.println(1);
         return competitionRepository.findAll(spec);
     }

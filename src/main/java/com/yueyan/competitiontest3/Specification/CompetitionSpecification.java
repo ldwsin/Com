@@ -11,10 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompetitionSpecification {
+
+
     public static Specification<Competition> yearEquals(String year){
         return((root, query, builder) -> {
             List<Predicate> predicates = new ArrayList<>();
-            if(year!=null&&!"".equals(year)){
+            if(year!=null){
                 predicates.add(builder.equal(root.get(Competition_.year),year));
             }
             return builder.and(predicates.toArray(new Predicate[0]));
